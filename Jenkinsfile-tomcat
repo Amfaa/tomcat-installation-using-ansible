@@ -7,7 +7,7 @@ pipeline
       { steps { git 'https://github.com/Amfaa/tomcat-installation-using-ansible'}}
 
       stage ( 'copy playbook from jenkins workspace area to ansible master playbook directory')
-      {steps { sshPublisher(publishers: [sshPublisherDesc(configName: 'ansible_master', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'ansible-playbooks /etc/ansible/playbooks/tomcat-install.yml', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '//etc//ansible//playbooks', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'tomcat-install.yml')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])}}
+      {steps { sshPublisher(publishers: [sshPublisherDesc(configName: 'ansible_master', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'ansible-playbook /etc/ansible/playbooks/tomcat-install.yml', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '//etc//ansible//playbooks', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'tomcat-install.yml')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])}}
    }
 
 }
